@@ -48,5 +48,10 @@ namespace WeatherApp.ViewModels
                 return true;
             }
         }
+
+        public void SetTemperatureService(ITemperatureService _service)
+        {
+            TemperatureService = _service;
+        }
     }
 }
