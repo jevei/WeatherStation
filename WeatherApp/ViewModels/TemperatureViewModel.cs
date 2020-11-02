@@ -36,5 +36,17 @@ namespace WeatherApp.ViewModels
             temp = Math.Round(temp, 1);
             return temp;
         }
+
+        public bool CanGetTemp()
+        {
+            if (TemperatureService == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
