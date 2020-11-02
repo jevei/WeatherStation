@@ -13,5 +13,12 @@ namespace WeatherApp.ViewModels
             temp = Math.Round(temp, 1);
             return temp;
         }
+
+        public static double FahrenheitInCelsius(double f)
+        {
+            double temp = (f - 32) * 5 / 9;
+            temp = Math.Round(temp, 1);
+            return temp;
+        }
     }
 }
