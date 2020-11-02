@@ -141,11 +141,14 @@ namespace WeatherStationTests
         public void GetTempCommand_HaveCurrentTempWhenExecuted_ShouldPass()
         {
             // Arrange
-
+            var _mock = new Mock<ITemperatureService>();
+            _mock.Setup(x => x.GetTempAsync()).Returns(Task.FromResult(new TemperatureModel()));
+            _sut.SetTemperatureService(_mock.Object);
             // Act       
-
+            _sut.GetTempCommand.Execute(string.Empty);
+            var actual = _sut.CurrentTemp;
             // Assert
-
+            Assert.NotNull(actual);
             /// TODO : git commit -a -m "T07 GetTempCommand_HaveCurrentTempWhenExecuted_ShouldPass : Done"
         }
 
