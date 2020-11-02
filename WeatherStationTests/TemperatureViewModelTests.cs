@@ -53,11 +53,11 @@ namespace WeatherStationTests
         public void FahrenheitInCelsius_AlwaysReturnGoodValue(double F, double expected)
         {
             // Arrange
-
+            double actual;
             // Act       
-
+            actual = TemperatureViewModel.FahrenheitInCelsius(F);
             // Assert
-
+            Assert.Equal(expected, actual);
             /// TODO : git commit -a -m "T02 FahrenheitInCelsius_AlwaysReturnGoodValue : Done"
         }
 
@@ -71,9 +71,9 @@ namespace WeatherStationTests
             // Arrange
 
             // Act       
-
+            
             // Assert
-
+            Assert.Throws<NullReferenceException>(() => _sut.GetTempCommand.Execute(string.Empty));
             /// TODO : git commit -a -m "T03 GetTempCommand_ExecuteIfNullService_ShouldThrowNullException : Done"
         }
 
