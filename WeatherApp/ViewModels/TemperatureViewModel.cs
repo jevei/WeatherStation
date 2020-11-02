@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using WeatherApp.Commands;
+using WeatherApp.Models;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
@@ -9,6 +11,8 @@ namespace WeatherApp.ViewModels
     {
         /// TODO : Ajoutez le code nécessaire pour réussir les tests et répondre aux requis du projet
         public DelegateCommand<string> GetTempCommand { get; set; }
+        public TemperatureModel CurrentTemp { get; set; }
+        public ITemperatureService TemperatureService;
         public TemperatureViewModel()
         {
             GetTempCommand = new DelegateCommand<string>(GetTemp);
@@ -16,7 +20,7 @@ namespace WeatherApp.ViewModels
 
         private void GetTemp(string obj)
         {
-            
+            CurrentTemp = TemperatureService.GetTempAsync().Result;
         }
 
         public static double CelsiusInFahrenheit(double c)

@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WeatherApp.Models
 {
-    class TemperatureModel
+    public class TemperatureModel
     {
+        public DateTime DateTime { get; set; }
+        public double Temperature { get; set; }
     }
 }
